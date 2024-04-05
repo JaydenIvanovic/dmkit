@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex flex-col p-6">
+      <h1 className="text-4xl mb-6">Monster Manual</h1>
       <List></List>
-    </main>
+    </div>
   );
 }
 
