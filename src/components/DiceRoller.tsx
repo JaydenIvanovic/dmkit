@@ -38,9 +38,12 @@ export function DiceRoller() {
       </div>
       <button
         className="bg-black rounded-lg p-4 mt-5"
-        onClick={() => setTotal(0)}
+        onClick={() => {
+          setTotal(0);
+          setLastNumberRolled(0);
+        }}
       >
-        Reset total
+        Reset
       </button>
     </div>
   );
