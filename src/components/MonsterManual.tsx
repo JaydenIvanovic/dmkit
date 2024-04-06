@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 export function MonsterManual() {
   const [monsters, setMonsters] = useState<MonsterPreview[]>([]);
   const [selectedMonsterId, setSelectedMonsterId] = useState<string>("");
+  const [searchedMonsters, setSearchedMonsters] = useState<MonsterPreview[]>(
+    []
+  );
 
   useEffect(() => {
     fetchMonsters().then((monsters) => setMonsters(monsters));
@@ -22,10 +25,24 @@ export function MonsterManual() {
     return <MonsterDetail monsterId={selectedMonsterId} />;
   } else {
     return (
-      <MonstersList
-        monsters={monsters}
-        selectedMonsterCallback={setSelectedMonsterId}
-      />
+      <div>
+        <div className="flex justify-center">
+          <input
+            className="text-black text-lg p-4 w-64 text-center"
+            placeholder="Search for monster by name"
+            defaultValue=""
+            onChange={(e) => {
+              setSearchedMonsters(
+                monsters.filter((m) => m.name.includes(e.target.value))
+              );
+            }}
+          />
+        </div>
+        <MonstersList
+          monsters={searchedMonsters.length > 0 ? searchedMonsters : monsters}
+          selectedMonsterCallback={setSelectedMonsterId}
+        />
+      </div>
     );
   }
 }
@@ -42,8 +59,14 @@ function MonstersList({
     <ol>
       {monsters.map((monster) => {
         return (
-          <li key={monster.index}>
-            <button onClick={() => selectedMonsterCallback(monster.index)}>
+          <li
+            className="p-4 [&:nth-child(2n)]:bg-[color:#0000003b]"
+            key={monster.index}
+          >
+            <button
+              className="text-lg"
+              onClick={() => selectedMonsterCallback(monster.index)}
+            >
               {monster.name}
             </button>
           </li>

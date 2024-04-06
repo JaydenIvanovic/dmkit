@@ -63,26 +63,26 @@ type ModalProps = {
 };
 function Modal({ children, onCloseCallback }: ModalProps) {
   return (
-    <div className="absolute bg-[color:#91332ae6] w-4/5 h-screen overflow-y-auto">
-      <button className="absolute right-0 p-4" onClick={onCloseCallback}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-12 h-12"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
-      </button>
-
-      <h1>This would be the modal</h1>
-      {children}
+    <div className="absolute bg-[color:#352337e8] w-4/5 h-screen p-4">
+      <div className="flex">
+        <button className="ml-auto self-end" onClick={onCloseCallback}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-12 h-12"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div className="overflow-y-auto h-full">{children}</div>
     </div>
   );
 }
