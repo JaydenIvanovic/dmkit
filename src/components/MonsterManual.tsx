@@ -5,6 +5,7 @@ import {
   fetchMonsters,
 } from "@/api-clients/dnd";
 import { useEffect, useState } from "react";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 export function MonsterManual() {
   const [monsters, setMonsters] = useState<MonsterPreview[]>([]);
@@ -18,7 +19,11 @@ export function MonsterManual() {
   }, []);
 
   if (monsters.length === 0) {
-    return <div>TODO: Loading monsters...</div>;
+    return (
+      <div className="flex h-full justify-center items-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (selectedMonsterId !== "") {
@@ -81,8 +86,8 @@ type MonsterDetailProps = {
 };
 function MonsterDetail({ monsterId }: MonsterDetailProps) {
   const [monster, setMonster] = useState<Monster | null>(null);
-  const [state, setState] = useState<"INITIAL" | "FETCHING_DATA" | "FETCHED">(
-    "INITIAL"
+  const [state, setState] = useState<"FETCHING_DATA" | "FETCHED">(
+    "FETCHING_DATA"
   );
 
   useEffect(() => {
@@ -93,12 +98,12 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
     });
   }, [monsterId]);
 
-  if (state === "INITIAL") {
-    return <div>TODO: Loading</div>;
-  }
-
   if (state === "FETCHING_DATA") {
-    return <div>TODO: Loading</div>;
+    return (
+      <div className="flex h-full justify-center items-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (state === "FETCHED" && monster) {
