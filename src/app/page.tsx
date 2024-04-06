@@ -1,5 +1,6 @@
 "use client";
 
+import { DiceRoller } from "@/components/DiceRoller";
 import { Modal } from "@/components/Modal";
 import { MonsterManual } from "@/components/MonsterManual";
 import Image from "next/image";
@@ -14,9 +15,9 @@ export default function Home() {
       case "MONSTER_MANUAL":
         return <MonsterManual />;
       case "DICE":
-        return "DICE";
+        return <DiceRoller />;
       default:
-        return "DICE";
+        return <DiceRoller />;
     }
   }
 
