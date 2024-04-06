@@ -4,7 +4,7 @@ type ModalProps = {
 };
 export function Modal({ children, onCloseCallback }: ModalProps) {
   return (
-    <div className="absolute bg-[color:#352337e8] w-4/5 h-screen p-4 max-w-[1200px]">
+    <div className="flex flex-col absolute bg-[color:#352337e8] w-full sm:w-4/5 h-screen p-4 max-w-[1200px]">
       <div className="flex">
         <button className="ml-auto self-end" onClick={onCloseCallback}>
           <CloseIcon />

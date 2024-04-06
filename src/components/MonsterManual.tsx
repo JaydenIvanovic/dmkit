@@ -26,7 +26,7 @@ export function MonsterManual() {
   } else {
     return (
       <div>
-        <div className="flex justify-center">
+        <div className="flex w-full justify-center">
           <input
             className="text-black text-lg p-4 w-64 text-center"
             placeholder="Search for monster by name"
@@ -60,7 +60,7 @@ function MonstersList({
       {monsters.map((monster) => {
         return (
           <li
-            className="p-4 [&:nth-child(2n)]:bg-[color:#0000003b]"
+            className="w-full p-4 [&:nth-child(2n)]:bg-[color:#0000003b]"
             key={monster.index}
           >
             <button
