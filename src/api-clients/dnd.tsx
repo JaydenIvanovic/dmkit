@@ -1,5 +1,9 @@
 const host = "https://www.dnd5eapi.co";
 
+export type Result<T, E = Error> =
+  | { ok: true; value: T }
+  | { ok: false; error: E };
+
 export type Monster = {
   index: string;
   name: string;
@@ -15,7 +19,7 @@ export type Monster = {
 };
 export type MonsterPreview = Pick<Monster, "index" | "name" | "url">;
 
-export async function fetchMonsters(): Promise<MonsterPreview[]> {
+export async function fetchMonsters(): Promise<Result<MonsterPreview[]>> {
   return fetch(`${host}/api/monsters`, {
     method: "GET",
     headers: {
@@ -24,11 +28,15 @@ export async function fetchMonsters(): Promise<MonsterPreview[]> {
     redirect: "follow",
   })
     .then((response) => response.json())
-    .then((result) => result.results)
-    .catch((error) => console.error(error));
+    .then((result) => {
+      return { ok: true as true, value: result.results };
+    })
+    .catch((error) => {
+      return { ok: false, error: error };
+    });
 }
 
-export async function fetchMonster(index: string): Promise<Monster> {
+export async function fetchMonster(index: string): Promise<Result<Monster>> {
   return fetch(`${host}/api/monsters/${index}`, {
     method: "GET",
     headers: {
@@ -37,6 +45,10 @@ export async function fetchMonster(index: string): Promise<Monster> {
     redirect: "follow",
   })
     .then((response) => response.json())
-    .then((result) => result)
-    .catch((error) => console.error(error));
+    .then((result) => {
+      return { ok: true as true, value: result };
+    })
+    .catch((error) => {
+      return { ok: false, error: error };
+    });
 }

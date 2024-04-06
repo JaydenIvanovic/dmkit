@@ -13,10 +13,27 @@ export function MonsterManual() {
   const [searchedMonsters, setSearchedMonsters] = useState<MonsterPreview[]>(
     []
   );
+  const [error, setError] = useState<Error>();
 
   useEffect(() => {
-    fetchMonsters().then((monsters) => setMonsters(monsters));
+    fetchMonsters().then((result) => {
+      if (result.ok) {
+        setMonsters(result.value);
+      } else {
+        // Could log to bugsnag, sentry or some equivalent in a real app
+        console.error(result.error);
+        setError(result.error);
+      }
+    });
   }, []);
+
+  if (error) {
+    return (
+      <div className="flex h-full justify-center items-center">
+        <p>Oh noes! Fetching data failed. Close this window and try again.</p>
+      </div>
+    );
+  }
 
   if (monsters.length === 0) {
     return (
@@ -86,17 +103,31 @@ type MonsterDetailProps = {
 };
 function MonsterDetail({ monsterId }: MonsterDetailProps) {
   const [monster, setMonster] = useState<Monster | null>(null);
-  const [state, setState] = useState<"FETCHING_DATA" | "FETCHED">(
+  const [state, setState] = useState<"FETCHING_DATA" | "FETCHED" | "FAILED">(
     "FETCHING_DATA"
   );
 
   useEffect(() => {
     setState("FETCHING_DATA");
-    fetchMonster(monsterId).then((m) => {
-      setMonster(m);
-      setState("FETCHED");
+    fetchMonster(monsterId).then((result) => {
+      if (result.ok) {
+        setMonster(result.value);
+        setState("FETCHED");
+      } else {
+        // Could log to bugsnag, sentry or some equivalent in a real app
+        console.error(result.error);
+        setState("FAILED");
+      }
     });
   }, [monsterId]);
+
+  if (state === "FAILED") {
+    return (
+      <div className="flex h-full justify-center items-center">
+        <p>Oh noes! Fetching data failed. Close this window and try again.</p>
+      </div>
+    );
+  }
 
   if (state === "FETCHING_DATA") {
     return (
