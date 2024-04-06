@@ -113,13 +113,13 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
           <p>Wisdom: {monster.wisdom}</p>
           <p>Charisma: {monster.charisma}</p>
         </div>
+        {monster.desc ? <p className="text-lg">{monster.desc}</p> : null}
         {monster.image ? (
           <img
             src={`https://www.dnd5eapi.co${monster.image}`}
             alt={monster.desc}
           />
         ) : null}
-        {monster.desc ? <p className="text-lg">{monster.desc}</p> : null}
       </div>
     );
   }
