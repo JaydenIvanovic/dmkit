@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${font.className} text-white bg-[color:#10181c]`}>
         <main className="flex min-h-screen">
-          <nav className="flex flex-col bg-[color:#ae3631] px-6 min-w-80 w-80">
+          {/* <nav className="flex flex-col bg-[color:#ae3631] px-6 min-w-80 w-80">
             <div className="flex py-5 w-full">
               <Image
                 src="/images/d20-icon.png"
@@ -32,7 +32,7 @@ export default function RootLayout({
             <a className="text-xl underline" href="/monsters">
               Monsters
             </a>
-          </nav>
+          </nav> */}
           {children}
         </main>
       </body>
