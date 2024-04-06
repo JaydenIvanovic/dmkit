@@ -2,7 +2,6 @@
 
 import { Modal } from "@/components/Modal";
 import { MonsterManual } from "@/components/MonsterManual";
-import { DiceIcon, MonsterIcon } from "@/components/icons";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -21,32 +20,45 @@ export default function Home() {
     }
   }
 
+  const roundedGlowStyles = [
+    "[border-radius:100%]",
+    "[box-shadow:0px_0px_20px_15px_#37243a]",
+  ].join(" ");
+
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <div className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] relative">
         <Image
-          className="[border-radius:100%] [box-shadow:0px_0px_20px_15px_#37243a]"
+          className={roundedGlowStyles}
           src="/images/dungeon-master.jpg"
           alt="A wizard in a dungeon rolling d20 dice"
           fill
         ></Image>
         <button
-          className="absolute top-0 right-0 hover:scale-105"
+          className="absolute top-0 right-0 hover:scale-125 transition-transform"
           onClick={() => {
             setToolInUse("MONSTER_MANUAL");
             setModalState("VISIBLE");
           }}
         >
-          <MonsterIcon />
+          <img
+            className={`w-16 ${roundedGlowStyles}`}
+            alt=""
+            src="/images/monster-face.jpg"
+          ></img>
         </button>
         <button
-          className="absolute top-0 left-0 hover:scale-105"
+          className="absolute top-0 left-0 hover:scale-125 transition-transform"
           onClick={() => {
             setToolInUse("DICE");
             setModalState("VISIBLE");
           }}
         >
-          <DiceIcon />
+          <img
+            className={`w-16 ${roundedGlowStyles}`}
+            alt=""
+            src="/images/d20.jpg"
+          ></img>
         </button>
       </div>
       {modalState === "VISIBLE" ? (
