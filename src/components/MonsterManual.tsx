@@ -104,11 +104,12 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
   if (state === "FETCHED" && monster) {
     return (
       <div>
-        <h1>{monster.name}</h1>
+        <h1 className="text-4xl">{monster.name}</h1>
         <img
           src={`https://www.dnd5eapi.co${monster.image}`}
           alt={monster.desc}
         />
+        <p className="text-lg">{monster.desc}</p>
       </div>
     );
   }

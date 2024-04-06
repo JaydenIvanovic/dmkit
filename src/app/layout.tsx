@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Macondo } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 
 const font = Macondo({ weight: "400", subsets: ["latin"] });
 
@@ -18,23 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} text-white bg-[color:#10181c]`}>
-        <main className="flex min-h-screen">
-          {/* <nav className="flex flex-col bg-[color:#ae3631] px-6 min-w-80 w-80">
-            <div className="flex py-5 w-full">
-              <Image
-                src="/images/d20-icon.png"
-                alt=""
-                width={24}
-                height={24}
-              ></Image>
-              <span className="ml-2">Dungeon Master Toolkit</span>
-            </div>
-            <a className="text-xl underline" href="/monsters">
-              Monsters
-            </a>
-          </nav> */}
-          {children}
-        </main>
+        <main className="flex min-h-screen">{children}</main>
       </body>
     </html>
   );
