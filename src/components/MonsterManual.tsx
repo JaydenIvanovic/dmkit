@@ -105,11 +105,21 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
     return (
       <div>
         <h1 className="text-4xl">{monster.name}</h1>
-        <img
-          src={`https://www.dnd5eapi.co${monster.image}`}
-          alt={monster.desc}
-        />
-        <p className="text-lg">{monster.desc}</p>
+        <div>
+          <p>Strength: {monster.strength}</p>
+          <p>Dexterity: {monster.dexterity}</p>
+          <p>Constition: {monster.constitution}</p>
+          <p>Intelligence: {monster.intelligence}</p>
+          <p>Wisdom: {monster.wisdom}</p>
+          <p>Charisma: {monster.charisma}</p>
+        </div>
+        {monster.image ? (
+          <img
+            src={`https://www.dnd5eapi.co${monster.image}`}
+            alt={monster.desc}
+          />
+        ) : null}
+        {monster.desc ? <p className="text-lg">{monster.desc}</p> : null}
       </div>
     );
   }

@@ -4,8 +4,14 @@ export type Monster = {
   index: string;
   name: string;
   url: string;
-  image: string;
-  desc: string;
+  image?: string;
+  desc?: string;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
 };
 export type MonsterPreview = Pick<Monster, "index" | "name" | "url">;
 
