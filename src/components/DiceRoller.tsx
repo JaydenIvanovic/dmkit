@@ -22,14 +22,11 @@ export function DiceRoller() {
           fill
         ></Image>
         <span className="absolute left-1/2 top-1/2 -translate-x-1/2 text-black text-3xl">
-          {total}
+          {lastNumberRolled}
         </span>
       </div>
       <p className="mt-8">
         Total: <span>{total}</span>
-      </p>
-      <p>
-        Last number rolled: <span>{lastNumberRolled}</span>
       </p>
       <div className="flex flex-wrap mt-8">
         <DiceButton onClick={() => rollDice(4)}>d4</DiceButton>
