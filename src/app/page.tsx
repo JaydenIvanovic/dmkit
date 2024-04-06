@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <div className="w-[500px] h-[500px] relative">
+      <div className="w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] relative">
         <Image
           className="[border-radius:100%] [box-shadow:0px_0px_20px_15px_#37243a]"
           src="/images/dungeon-master.jpg"
