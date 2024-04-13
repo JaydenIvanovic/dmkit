@@ -1,6 +1,6 @@
 export function LoadingSpinner() {
   return (
-    <div className="animate-spin">
+    <div className="animate-spin-1_5">
       <D6Die />
     </div>
   );
@@ -19,7 +19,7 @@ function D6Die() {
   ].join(" ");
 
   return (
-    <div className="flex relative [transform-style:preserve-3d] [transform:rotate3d(1,1,1,30deg)] [width:100px] [height:100px]">
+    <div className="flex relative [transform-style:preserve-3d] [transform:rotate3d(1,1,1,60deg)] [width:100px] [height:100px]">
       <div
         className={`${defaultFaceStyles} bg-red-500 [transform:translateZ(50px)]`}
       >
