@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} text-white bg-[color:#10181c]`}>
-        <div className="z-0 absolute w-full h-screen bg-[url('/images/dungeon.jpg')] bg-[position:center] bg-repeat-x filter blur-sm"></div>
+        <div className="z-0 absolute w-full h-screen bg-[url('/images/dungeon.jpg')] bg-[position:center] bg-repeat-x [filter:blur(6px)]"></div>
         <main className="z-10 flex min-h-screen">{children}</main>
       </body>
     </html>
