@@ -34,7 +34,7 @@ export default function Home() {
           src="/images/dungeon-master.jpg"
           alt="A wizard in a dungeon rolling d20 dice"
           fill
-        ></Image>
+        />
         <button
           className="absolute top-0 right-0 hover:scale-125 transition-transform"
           onClick={() => {
@@ -42,11 +42,13 @@ export default function Home() {
             setModalState("VISIBLE");
           }}
         >
-          <img
-            className={`w-16 ${roundedGlowStyles}`}
+          <Image
+            className={`${roundedGlowStyles}`}
+            width={64}
+            height={64}
             alt=""
             src="/images/monster-face.jpg"
-          ></img>
+          />
         </button>
         <button
           className="absolute top-0 left-0 hover:scale-125 transition-transform"
@@ -55,11 +57,13 @@ export default function Home() {
             setModalState("VISIBLE");
           }}
         >
-          <img
-            className={`w-16 ${roundedGlowStyles}`}
+          <Image
+            className={`${roundedGlowStyles}`}
+            width={64}
+            height={64}
             alt=""
             src="/images/d20.jpg"
-          ></img>
+          />
         </button>
       </div>
       {modalState === "VISIBLE" ? (

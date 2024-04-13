@@ -155,6 +155,7 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
         </div>
         {monster.desc ? <p className="mt-5 text-lg">{monster.desc}</p> : null}
         {monster.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             className="mt-5"
             src={`https://www.dnd5eapi.co${monster.image}`}
