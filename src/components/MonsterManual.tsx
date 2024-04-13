@@ -86,11 +86,11 @@ function MonstersList({
       {monsters.map((monster) => {
         return (
           <li
-            className="w-full p-4 [&:nth-child(2n)]:bg-[color:#0000003b]"
+            className="w-full p-6 [&:nth-child(2n)]:bg-[color:#0000003b]"
             key={monster.index}
           >
             <button
-              className="text-lg"
+              className="w-full h-full text-lg text-left"
               onClick={() => selectedMonsterCallback(monster.index)}
             >
               {monster.name}
