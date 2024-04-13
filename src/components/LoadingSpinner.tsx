@@ -15,6 +15,7 @@ function D6Die() {
     "justify-center",
     "items-center",
     "bg-opacity-70",
+    "text-4xl",
   ].join(" ");
 
   return (
