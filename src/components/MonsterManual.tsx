@@ -55,7 +55,11 @@ export function MonsterManual() {
             defaultValue=""
             onChange={(e) => {
               setSearchedMonsters(
-                monsters.filter((m) => m.name.includes(e.target.value))
+                monsters.filter((m) =>
+                  m.name
+                    .toLocaleLowerCase()
+                    .includes(e.target.value.toLocaleLowerCase())
+                )
               );
             }}
           />
