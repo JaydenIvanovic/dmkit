@@ -145,7 +145,7 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
     return (
       <div>
         <h1 className="text-4xl">{monster.name}</h1>
-        <div>
+        <div className="mt-5">
           <p>Strength: {monster.strength}</p>
           <p>Dexterity: {monster.dexterity}</p>
           <p>Constition: {monster.constitution}</p>
@@ -153,9 +153,10 @@ function MonsterDetail({ monsterId }: MonsterDetailProps) {
           <p>Wisdom: {monster.wisdom}</p>
           <p>Charisma: {monster.charisma}</p>
         </div>
-        {monster.desc ? <p className="text-lg">{monster.desc}</p> : null}
+        {monster.desc ? <p className="mt-5 text-lg">{monster.desc}</p> : null}
         {monster.image ? (
           <img
+            className="mt-5"
             src={`https://www.dnd5eapi.co${monster.image}`}
             alt={monster.desc}
           />
