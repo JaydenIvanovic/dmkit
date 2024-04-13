@@ -50,7 +50,7 @@ export function MonsterManual() {
       <div>
         <div className="flex w-full justify-center">
           <input
-            className="text-black text-lg p-4 w-64 text-center"
+            className="text-black text-lg p-4 w-4/5 lg:w-1/2 text-center rounded"
             placeholder="Search for monster by name"
             defaultValue=""
             onChange={(e) => {
